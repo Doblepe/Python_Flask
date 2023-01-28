@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import pandas as pd
 import json
 import csv
@@ -6,9 +6,10 @@ import csv
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
-def home():
-    return "Bienvenido a FLask"
+@app.route('/')
+def hello():
+    return render_template('home.html')
+
 
 @app.route("/iris/", methods=["GET"])
 def irisData():
